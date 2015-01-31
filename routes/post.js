@@ -8,7 +8,7 @@ var db = fdb.open();
 var fs = require('fs');
 
 exports.index = function(req, res){
-	res.render("post", {});
+	res.render("post");
   //res.send("post something");
 };
 

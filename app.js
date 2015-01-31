@@ -4,6 +4,7 @@
 
 var express = require('express');
 
+// routing requirements
 var routes = require('./routes');
 var user = require('./routes/user');
 var post = require('./routes/post');
@@ -31,6 +32,7 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
+// routes
 app.get('/', routes.index);
 app.get('/users', user.list);
 app.get('/post', post.index);
