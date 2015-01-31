@@ -38,6 +38,39 @@ head
   width: 256px;
   margin-top: 20px;
   }
+  #author {
+  height: 30px;
+  font-size: 18px;
+  width: 50px;
+  position: absolute;
+  top: 20px;
+  left: 280px;
+  font-family: 'Open Sans', serif;
+  }
+  #answersDiv {
+  background-color: #ffffff;
+  height: 256px;
+  width: 570px;
+  position: absolute;
+  top: 20px;
+  left: 350px;
+  border: 1px #dedede;
+  }
+  #answerDiv {
+  float: right;
+  position: absolute;
+  top: 20px;
+  right: 10px;
+  }
+  #answer {
+  height: 216px;
+  width: 200px;
+  }
+  #answer-submit {
+  margin-top: 5px;
+  height: 40px;
+  width: 200px;
+  }
   .
 body
   nav.navbar.navbar-inverse.navbar-fixed-top
@@ -60,13 +93,22 @@ body
             a(href='/find') Find
   |     
   .jumbotron
-    h1 Explore recently answered Questions
+    h1 Explore Questions from Site Members
   each x in things
     .row
       .col-md-1
       .col-md-10
         .pic_div
           img(src=x.img, height=256, width=256)
+        #author
+          p author: #{x.user}
+        #answersDiv
+          
+        form(method='post' action='', enctype='multipart/form-data')
+          #answerDiv(width=100, height=200)
+            textarea#answer.form-control(name='answer')
+            input(type="hidden", value=x.post, name="postid")
+            input#answer-submit.btn.btn-success(type='submit', value='Answer')
       .col-md-1
   .footer
 

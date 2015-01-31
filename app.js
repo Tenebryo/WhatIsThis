@@ -63,6 +63,7 @@ app.get('/', routes.index);
 app.get('/post', post.index);
 app.post('/upload', post.submit);
 app.get('/find', find.index);
+app.post('/find', find.submit);
 
 app.get('*.[pPjJ][nNpP][gG]', function(req, res) {
   var img = fs.readFileSync('./data/uploads/'+req.path);

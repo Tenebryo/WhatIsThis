@@ -124,48 +124,6 @@ function set_post_image(post_id, filename)
   })
 };
 
-//add a user's indentification of an object according to their credibility
-function add_endorsement_to_suggestion(post_id, iden, credits, user_id) {
-  var post_ss = new fdb.Subspace(['posts', post_id]);
-  var user_ss = new fdb.Subspace(['users', user_id]);
-  db.doTransaction(function(tr, inCB){
-
-    tr.get(post_ss.pack(['e', iden]), function(err, v) {
-
-      if(err) return inCB(err);
-
-      tr.get(post_ss.pack(['top']), function(err1, v1) {
-
-        if(err1) return inCB(err);
-        var val1 = -1;
-        if (v1) val1 = _unpack(v1);
-
-        if(!v) {
-          if(!val1 || (val1 < credits)) {
-            tr.set(post_ss.pack(['top', 'val']), _pack(credits));
-            tr.set(post_ss.pack(['top', 'iden']), _pack(iden));
-          }
-          tr.set(post_ss.pack(['e', iden]), _pack(credits));
-        } else {
-          var val = _unpack(v);
-          if(!val1 || (val1 < val + credits)) {
-            tr.set(post_ss.pack(['top', 'val']), _pack(val + credits));
-            tr.set(post_ss.pack(['top', 'iden']), _pack(iden));
-          }
-          tr.set(post_ss.pack(['e', iden]), _pack(val + credits));
-        }
-
-        tr.set(user_ss.pack(['indetifications', post_id]), _pack(iden));
-
-        inCB(null, true);
-
-      });
-    });
-
-
-  });
-};
-
 //get a user's credibility. user.js?
 function get_user_credibilty(user_id, cb) { //cb : function(err, val);
   var user_ss = new fdb.Subspace(['users', user_id]);
