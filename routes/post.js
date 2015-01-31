@@ -4,5 +4,5 @@
  */
 
 exports.index = function(req, res){
-  res.send("post something");
+  res.render('post');
 };
