@@ -31,10 +31,10 @@ head
         #navbar.navbar-collapse.collapse
           ul.nav.navbar-nav
             li.active
-              a(href='file:///Users/AlexZ/Desktop/what.html') Home
+              a(href='file:///Users/AlexZ/Desktop/site/home.html') Home
             |           
             li
-              a(href='file:///Users/AlexZ/Desktop/page2.html') Post
+              a(href='file:///Users/AlexZ/Desktop/site/page2.html') Post
             |           
             li
               a(href='file:///Users/AlexZ/Desktop/page3.html') Identify
