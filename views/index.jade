@@ -1,5 +1,7 @@
 doctype html(lang='en')
 head
+    link(rel='icon', type='image/ico', href='file:///Users/AlexZ/Desktop/site/favicon.png')
+    |   
     title What is This
     |   
     meta(charset='utf-8')
@@ -16,32 +18,33 @@ head
     font-size: 12px;
     background: #19A3FF;
     }
-    h1{
-    margin-bottom:20px;
-    }
-body
-  nav.navbar.navbar-inverse.navbar-fixed-top
-    .container
-      .navbar-header
-        button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#navbar', aria-expanded='false', aria-controls='navbar')
-          span.sr-only Toggle navigation
-        |         
-        a.navbar-brand(href='file:///Users/AlexZ/Desktop/home.html') What Is This?
-      |       
-      #navbar.navbar-collapse.collapse
-        ul.nav.navbar-nav
-          li.active
-            a(href='/') Home
-          |           
-          li
-            a(href='/post') Post
-          |           
-          li
-            a(href='/find') Find
-  |     
-  .jumbotron
-    h1 What Is It?
+  body
+    nav.navbar.navbar-inverse.navbar-fixed-top
+      .container
+        .navbar-header
+          button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#navbar', aria-expanded='false', aria-controls='navbar')
+            span.sr-only Toggle navigation
+          |         
+          a.navbar-brand(href='file:///Users/AlexZ/Desktop/site/home.html') What Is This?
+        |       
+        #navbar.navbar-collapse.collapse
+          ul.nav.navbar-nav
+            li.active
+              a(href='file:///Users/AlexZ/Desktop/site/home.html') Home
+            |           
+            li
+              a(href='file:///Users/AlexZ/Desktop/site/page2.html') Post
+            |           
+            li
+              a(href='file:///Users/AlexZ/Desktop/site/page3.html') Identify
     |     
-    p This site will help identify any weird object
-    |     
-    p Click post to submit a photo or click identify to look at people&apos;s submissions!
+    .jumbotron
+      center
+        h1 What Is This?
+    |   
+    .jumbotron
+      li
+        p This website will help you identify anything
+      |   
+      li
+        p Click post to submit a post click idenitfy to help figure out what something is
