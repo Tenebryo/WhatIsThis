@@ -37,6 +37,12 @@ head
     margin-top:10px;
     border:0px;
     }
+    #submit {
+    width: 320px;
+    }
+    .jumbotron {
+    height: 425px;
+    }
 body
   nav.navbar.navbar-inverse.navbar-fixed-top
     .container
@@ -49,13 +55,13 @@ body
       #navbar.navbar-collapse.collapse
         ul.nav.navbar-nav
           li
-            a(href='file:///Users/AlexZ/Desktop/site/home.html') Home
+            a(href='/') Home
           |           
           li.active
-            a(href='file:///Users/AlexZ/Desktops/site/page2.html') Post
+            a(href='/post') Post
           |           
           li
-            a(href='file:///Users/AlexZ/Desktop/site/page3.html') Identify
+            a(href='/find') Find
   .jumbotron
     center
       h1 Upload
@@ -75,5 +81,5 @@ body
           br
           |     
           #post
-            input(type='submit', value='Post', name='submit')
+            input.btn.btn-default#submit(type='submit', value='Post', name='submit')
             br

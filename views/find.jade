@@ -1,9 +1,93 @@
-doctype html
-html
-  head
-    title Posts
-  body
-    h1 Posts
-    |   &#x9;
-    each name in files
-      img(src='#{name}')
+doctype html(lang='en')
+head
+    link(rel='icon', type='image/ico', href='file:///Users/AlexZ/Desktop/site/favicon.png')
+    |   
+    title What is This
+    |   
+    meta(charset='utf-8')
+    |   
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    |   
+    link(rel='stylesheet', href='http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css')
+    |   
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js')
+    |   
+    script(src='http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js')
+  style.
+  body{
+  font-size: 12px;
+  }
+  .jumbotron {
+  margin-top: 50px;
+  background-color: white;
+  }
+  .col-md-4 {
+  background-color: #ededed;
+  height: 200px;
+  border: 3px solid #bdbdbd;
+  border-radius: 4px;
+  }
+  .col-md-6 {
+  height: 20px;
+  }
+  .
+body
+  nav.navbar.navbar-inverse.navbar-fixed-top
+    .container
+      .navbar-header
+        button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#navbar', aria-expanded='false', aria-controls='navbar')
+          span.sr-only Toggle navigation
+        |         
+        a.navbar-brand(href='file:///Users/AlexZ/Desktop/site/home.html') What Is This?
+      |       
+      #navbar.navbar-collapse.collapse
+        ul.nav.navbar-nav
+          li
+            a(href='/') Home
+          |           
+          li
+            a(href='/post') Post
+          |           
+          li.active
+            a(href='/find') Find
+  |     
+  .jumbotron
+    h1 Explore recently answered Questions
+
+  .row
+    .col-md-1
+    .col-md-4
+    .col-md-1
+    .col-md-4
+    .col-md-1
+  .row
+    .col-md-6
+    .col-md-6
+  .row
+    .col-md-1
+    .col-md-4
+    .col-md-1
+    .col-md-4
+    .col-md-1
+  .row
+    .col-md-6
+    .col-md-6
+  .row
+    .col-md-1
+    .col-md-4
+    .col-md-1
+    .col-md-4
+    .col-md-1
+  .row
+    .col-md-6
+    .col-md-6
+  .row
+    .col-md-1
+    .col-md-4
+    .col-md-1
+    .col-md-4
+    .col-md-1
+  .footer
+
+
+
