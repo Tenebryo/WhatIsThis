@@ -7,11 +7,23 @@ var fdb = require('fdb').apiVersion(300);
 var db = fdb.open();
 var fs = require('fs');
 
+// called on GET request
 exports.index = function(req, res){
 	res.render("post");
   //res.send("post something");
 };
 
+// called on POST request 
+exports.submit = function(req, res){
+  res.send("name: " + req.body.upload); 
+  new_post(req.body.firstname, function(e, v) {
+    if (!e) {
+      set_post_image(v, req.body.fileToUpload);
+    }
+  }); 
+};
+
+/*
 exports.form = function(req, res) {
 
   res.send('You sent ' + req.body.test_file)
@@ -19,6 +31,7 @@ exports.form = function(req, res) {
   get_user_identifications(3301, function(e, v) {
     if (!e) console.log(v);
   });
+*/
 
 /*
   var fstream;
@@ -32,7 +45,6 @@ exports.form = function(req, res) {
       });
   });//*/
 
-};
 
 function copyFile(source, target, cb) {
   var cbCalled = false;
@@ -66,26 +78,6 @@ function _pack(t) {
   return fdb.tuple.pack([t]);
 }
 
-function get_posts(count, cb) {//cb : function(err, val);
-  var post_index_ss = new fdb.Subspace(['post_index', 'posts']);
-  db.doTransaction(function(tr, inCB) {
-    var it = tr.getRangeStartsWith(post_index_ss.key(), {reverse:true});
-    
-    var result = [];
-
-    var c = 0;
-    it.forEach(function(kv, cb) {
-      result[c] = {key:post_index_ss.unpack(kv.key)[0], value:_unpack(kv.value)};
-      if (++c === count)
-        cb (null, null);
-      else
-        cb();
-    });
-
-    inCB(null, result);
-  }, cb);
-}
-
 function new_post(user_id, cb) {//cb : function(err, val);
   var post_index_ss = new fdb.Subspace(['post_index']);
   var user_ss = new fdb.Subspace(['users', user_id]);
@@ -117,19 +109,6 @@ function set_post_image(post_id, filename)
 
   })
 };
-
-function get_post_image(post_id, cb) { //cb : function(err, val);
-  var post_ss = new fdb.Subspace(['posts', post_id]);
-  db.doTransaction(function(tr, inCB){
-
-    tr.get(post_ss.pack(['image']), function(err, val) {
-      if(err) return inCB(err);
-      return inCB(null, _unpack(val));
-    });
-
-  }, cb);
-};
-
 
 //add a user's indentification of an object according to their credibility
 function add_endorsement_to_suggestion(post_id, iden, credits, user_id) {
@@ -173,7 +152,7 @@ function add_endorsement_to_suggestion(post_id, iden, credits, user_id) {
   });
 };
 
-//get a user's credibility
+//get a user's credibility. user.js?
 function get_user_credibilty(user_id, cb) { //cb : function(err, val);
   var user_ss = new fdb.Subspace(['users', user_id]);
   db.doTransaction(function(tr, inCB) {
@@ -191,24 +170,14 @@ function set_user_credibility(user_id, new_credibility) {
   });
 }
 
-function get_user_posts(user_id, cb) {//cb : function(err, val);
-  var user_ss = new fdb.Subspace(['users', user_id]);
-  db.doTransaction(function(tr, inCB) {
-    var it = tr.getRangeStartsWith(user_ss.pack(['posts']));
-    it.toArray(function(err, val) {
-      if(err) return inCB(err);
-      inCB(null, val.map(function(t) {return user_ss.subspace(['posts']).unpack(t.key)[0];}));
-    });
-  }, cb);
-}
-
+// should this go in user.js?
 function get_user_identifications(user_id, cb) {//cb : function(err, val);
   var user_ss = new fdb.Subspace(['users', user_id]);
   db.doTransaction(function(tr, inCB) {
-    var it = tr.getRangeStartsWith(user_ss.pack(['indetifications']));
+    var it = tr.getRangeStartsWith(user_ss.pack(['indentifications']));
     it.toArray(function(err, val) {
       if(err) return inCB(err);
-      inCB(null, val.map(function(t) {return {post:user_ss.subspace(['indetifications']).unpack(t.key)[0], identification:_unpack(t.value)};}));
+      inCB(null, val.map(function(t) {return {post:user_ss.subspace(['indentifications']).unpack(t.key)[0], identification:_unpack(t.value)};}));
     });
   }, cb);
 }

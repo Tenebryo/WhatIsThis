@@ -34,8 +34,8 @@ if ('development' == app.get('env')) {
 
 // routes
 app.get('/', routes.index);
-app.get('/users', user.list);
 app.get('/post', post.index);
+app.post('/post', post.submit);
 app.get('/find', find.index);
 
 http.createServer(app).listen(app.get('port'), function(){

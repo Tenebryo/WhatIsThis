@@ -47,20 +47,20 @@ body
       #navbar.navbar-collapse.collapse
         ul.nav.navbar-nav
           li
-            a(href='file:///Users/AlexZ/Desktop/site/home.html') Home
+            a(href='/') Home
           |           
           li.active
-            a(href='file:///Users/AlexZ/Desktop/site/page2.html') Post
+            a(href='/post') Post
           |           
           li
-            a(href='file:///Users/AlexZ/Desktop/page3.html') Identify
+            a(href='/find') Find
   .jumbotron
     center
       h1 Upload
     |   
     .Upload
       center
-        form#upload(action='upload.php', method='post', enctype='multipart/form-data')
+        form#upload(action='', method='post', enctype='multipart/form-data')
           #username
             | Username:
             input(type='text', name='firstname')
