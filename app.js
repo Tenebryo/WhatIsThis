@@ -32,7 +32,7 @@ app.use(multer({dest:'./data/uploads', onFileUploadComplete:function(file) {
   console.log(fs.statSync('./data/uploads/' + file.name));
 
   gm('./data/uploads/' + file.name)
-  .resize(100, 100)
+  .resize(256, 256)
   .autoOrient()
   .write('./data/uploads/thmbnl' + file.name, function (err) {
     if (!err) console.log(' hooray! ');
