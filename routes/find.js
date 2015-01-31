@@ -9,11 +9,7 @@ var fs = require('fs');
 
 
 exports.index = function(req, res){
-  var fileNames = fs.readdirSync('public/images').slice(0, 10);
-  for (var i = 0; i < fileNames.length; i++) {
-    fileNames[i] = 'images/' + fileNames[i];
-  };
-  res.render('find', { files: fileNames});
+  res.render('find');
 };
 
 

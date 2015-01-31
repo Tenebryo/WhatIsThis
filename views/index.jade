@@ -18,6 +18,9 @@ head
     font-size: 12px;
     background: #19A3FF;
     }
+    .jumbotron {
+    height: 425px;
+    }
 body
   nav.navbar.navbar-inverse.navbar-fixed-top
     .container
@@ -29,22 +32,20 @@ body
       |       
       #navbar.navbar-collapse.collapse
         ul.nav.navbar-nav
-          li.active
-            a(href='file:///Users/AlexZ/Desktop/site/home.html') Home
+          li
+            a(href='/') Home
           |           
           li
-            a(href='file:///Users/AlexZ/Desktop/site/page2.html') Post
+            a(href='/post') Post
           |           
           li
-            a(href='file:///Users/AlexZ/Desktop/site/page3.html') Identify
+            a(href='/find') Find
   |     
   .jumbotron
     center
       h1 What Is This?
-  |   
-  .jumbotron
     li
       p This website will help you identify anything
     |   
     li
-      p Click post to submit a post click idenitfy to help figure out what something is
+      p Click post to submit a post click get something identified by other users
