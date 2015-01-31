@@ -1,5 +1,7 @@
 title What is This
 head
+    link(rel='icon', type='image/ico', href='file:///Users/AlexZ/Desktop/site/favicon.png')
+    |   
     meta(charset='utf-8')
     |   
     meta(name='viewport', content='width=device-width, initial-scale=1')
@@ -35,43 +37,43 @@ head
     margin-top:10px;
     border:0px;
     }
-body
-  nav.navbar.navbar-inverse.navbar-fixed-top
-    .container
-      .navbar-header
-        button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#navbar', aria-expanded='false', aria-controls='navbar')
-          span.sr-only Toggle navigation
-        |         
-        a.navbar-brand(href='file:///Users/AlexZ/Desktop/home.html') What Is This?
-      |       
-      #navbar.navbar-collapse.collapse
-        ul.nav.navbar-nav
-          li
-            a(href='file:///Users/AlexZ/Desktop/site/home.html') Home
-          |           
-          li.active
-            a(href='file:///Users/AlexZ/Desktop/site/page2.html') Post
-          |           
-          li
-            a(href='file:///Users/AlexZ/Desktop/page3.html') Identify
-  .jumbotron
-    center
-      h1 Upload
-    |   
-    .Upload
+  body
+    nav.navbar.navbar-inverse.navbar-fixed-top
+      .container
+        .navbar-header
+          button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#navbar', aria-expanded='false', aria-controls='navbar')
+            span.sr-only Toggle navigation
+          |         
+          a.navbar-brand(href='file:///Users/AlexZ/Desktop/site/home.html') What Is This?
+        |       
+        #navbar.navbar-collapse.collapse
+          ul.nav.navbar-nav
+            li
+              a(href='file:///Users/AlexZ/Desktop/site/home.html') Home
+            |           
+            li.active
+              a(href='file:///Users/AlexZ/Desktops/site/page2.html') Post
+            |           
+            li
+              a(href='file:///Users/AlexZ/Desktop/site/page3.html') Identify
+    .jumbotron
       center
-        form#upload(action='upload.php', method='post', enctype='multipart/form-data')
-          #username
-            | Username:
-            input(type='text', name='firstname')
-          |     
-          #bu
-            input#fileToUpload(type='file', name='fileToUpload')
-          |     
-          textarea(rows='4', cols='50')
-            | Description
-          br
-          |     
-          #post
-            input(type='submit', value='Post', name='submit')
+        h1 Upload
+      |   
+      .Upload
+        center
+          form#upload(action='upload.php', method='post', enctype='multipart/form-data')
+            #username
+              | Username:
+              input(type='text', name='firstname')
+            |     
+            #bu
+              input#fileToUpload(type='file', name='fileToUpload')
+            |     
+            textarea(rows='4', cols='50')
+              | Description
             br
+            |     
+            #post
+              input(type='submit', value='Post', name='submit')
+              br
