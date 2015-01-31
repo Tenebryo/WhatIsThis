@@ -29,6 +29,9 @@ head
     #Upload{
     font-size: 14px;
     }
+    #fileToUpload {
+    width: 320px;
+    }
     #bu{
     margin-top:18px;
     margin-bottom:18px;
@@ -40,8 +43,14 @@ head
     #submit {
     width: 320px;
     }
+    #uinput {
+    width: 320px;
+    }
+    #ta {
+    width: 320px;
+    }
     .jumbotron {
-    height: 425px;
+    height: 450px;
     }
 body
   nav.navbar.navbar-inverse.navbar-fixed-top
@@ -71,15 +80,15 @@ body
         form#upload(action='upload.php', method='post', enctype='multipart/form-data')
           #username
             | Username:
-            input(type='text', name='firstname')
+            input#uinput.form-control(type='text', name='firstname')
           |     
           #bu
-            input#fileToUpload(type='file', name='fileToUpload')
+            input#fileToUpload.form-control(type='file', name='fileToUpload')
           |     
-          textarea(rows='4', cols='50')
+          textarea#ta.form-control(rows='4', cols='50')
             | Description
           br
           |     
           #post
-            input.btn.btn-default#submit(type='submit', value='Post', name='submit')
+            input.btn.btn-success#submit(type='submit', value='Post', name='submit')
             br
