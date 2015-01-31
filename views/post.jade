@@ -62,13 +62,13 @@ body
     |   
     .Upload
       center
-        form#upload(action='upload.php', method='post', enctype='multipart/form-data')
+        form#upload(action='upload', method='post')
           #username
             | Username:
-            input(type='text', name='firstname')
+            input(type='text', name='firstname', id='firstname')
           |     
           #bu
-            input#fileToUpload(type='file', name='fileToUpload')
+            input#fileToUpload(type='file', name='fileToUpload', id='fileToUpload')
           |     
           textarea(rows='4', cols='50')
             | Description

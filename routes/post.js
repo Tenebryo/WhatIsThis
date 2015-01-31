@@ -6,6 +6,7 @@
 var fdb = require('fdb').apiVersion(300);
 var db = fdb.open();
 var fs = require('fs');
+var formidable = require('formidable');
 
 // called on GET request
 exports.index = function(req, res){
@@ -15,10 +16,24 @@ exports.index = function(req, res){
 
 // called on POST request 
 exports.submit = function(req, res){
-  res.send("name: " + req.body.upload); 
-  new_post(req.body.firstname, function(e, v) {
+
+  res.redirect('/');
+//
+//  for (var i in req) {
+//    console.log(i);
+//  }
+
+  console.log(req.headers);
+
+  console.log(req.body);
+  console.log(req.files);
+
+  var username = req.body.firstname;
+  var filename = req.files.fileToUpload.name;
+
+  new_post(username, function(e, v) {
     if (!e) {
-      set_post_image(v, req.body.fileToUpload);
+      set_post_image(v, filename);
     }
   }); 
 };
