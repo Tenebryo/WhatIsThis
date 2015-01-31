@@ -68,13 +68,13 @@ body
     |   
     .Upload
       center
-        form#upload(action='upload', method='post')
+        form#upload(action='upload', method='post', enctype='multipart/form-data')
           #username
             | Username:
             input(type='text', name='firstname', id='firstname')
           |     
           #bu
-            input#fileToUpload(type='file', name='fileToUpload', id='fileToUpload')
+            input#fileToUpload(type='file', name='fileToUpload')
           |     
           textarea(rows='4', cols='50')
             | Description
