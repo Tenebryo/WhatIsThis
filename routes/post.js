@@ -6,7 +6,6 @@
 var fdb = require('fdb').apiVersion(300);
 var db = fdb.open();
 var fs = require('fs');
-var formidable = require('formidable');
 
 // called on GET request
 exports.index = function(req, res){
@@ -107,7 +106,7 @@ function new_post(user_id, cb) {//cb : function(err, val);
       tr.set(post_index_ss.pack(['next_id']), _pack(v+1));
       tr.set(post_index_ss.pack(['posts', v]), _pack(user_id));
       tr.set(user_ss.pack(['posts', v]), _pack(true));
-      return inCB(null, val);
+      return inCB(null, v);
     });
 
   }, cb);
